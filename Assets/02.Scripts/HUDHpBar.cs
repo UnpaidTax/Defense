@@ -19,7 +19,7 @@ public class HUDHpBar : MonoBehaviour
         hpObj = Instantiate(hpBarPrefab);
         target = gameObject.transform;
         canvas = GameObject.Find("Canvas").GetComponent<RectTransform>();
-       hpObj.transform.SetParent(canvas);
+        hpObj.transform.SetParent(canvas);
         hpBar = hpObj.GetComponent<RectTransform>();
         hpBar.localScale = Vector3.one;
         hpBar.localRotation = Quaternion.Euler(0,0,0);
@@ -37,8 +37,11 @@ public class HUDHpBar : MonoBehaviour
 
         if(hpBar != null)
         {
-            hpBar.localPosition = canvasPos;
-            hpBar.GetComponent<Slider>().value = (float)transform.parent.GetComponent<EnemyController>().enemyHp / maxHp;
+
+                hpBar.localPosition = canvasPos;
+                hpBar.GetComponent<Slider>().value = (float)transform.parent.GetComponent<EnemyController>().enemyHp / maxHp;
+
+           
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public GameObject enemyTarget;
-    public float bulletSpeed = 10;
+    public float bulletSpeed = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +34,18 @@ public class BulletController : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Enemy"))
         {
+            if(other==null)
+            {
+                Destroy(this.gameObject); return;
+            }
+            else
+            {
 
-            Destroy(other.gameObject);
-            Destroy(this.gameObject);
+                other.gameObject.GetComponent<EnemyController>().TakeDamage(20);
+                Destroy(this.gameObject);
 
-            Debug.Log(other.transform.GetChild(1).gameObject);
-            other.transform.GetChild(1).gameObject.GetComponent<HUDHpBar>().DestoryHpBar();
+            }
+
         }
         else
         {

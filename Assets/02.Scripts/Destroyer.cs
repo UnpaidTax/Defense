@@ -15,6 +15,7 @@ public class Destroyer : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Destroy(other.gameObject);
+            other.transform.GetChild(1).gameObject.GetComponent<HUDHpBar>().DestoryHpBar();
             //Debug.Log("Ãæµ¹ ");
         }
     }
