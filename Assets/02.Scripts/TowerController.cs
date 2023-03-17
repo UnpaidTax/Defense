@@ -7,11 +7,13 @@ public class TowerController : MonoBehaviour
 
     public int attackPower;
     public float attackCurTime = 0;
-    public float attackSpeed = 1;
+    public float attackSpeed;
     public GameObject targetEnermy;
     public GameObject bulletPrefab;
     public GameObject muzzleEffect;
     public GameObject bullet;
+    public GameObject bulletStartPos;
+
 
     public enum TOWERSTATE
     {
@@ -61,7 +63,7 @@ public class TowerController : MonoBehaviour
                     if(attackCurTime>attackSpeed)
                     {
                         attackCurTime = 0;
-                        bullet = Instantiate(bulletPrefab,transform.GetChild(1).transform.position,Quaternion.identity);
+                        bullet = Instantiate(bulletPrefab, bulletStartPos.transform.position,Quaternion.identity);
                         bullet.GetComponent<BulletController>().enemyTarget = targetEnermy;
 
                     }

@@ -5,11 +5,15 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public GameObject enemyTarget;
-    public float bulletSpeed = 5;
+    public float bulletSpeed = 20;
+    public int bulletPower;
+    public GameObject getShootVFX;
+    public GameObject getShoot;
 
     // Start is called before the first frame update
     void Start()
     {
+
         if (enemyTarget != null)
         {
             transform.LookAt(enemyTarget.transform.position);
@@ -40,8 +44,9 @@ public class BulletController : MonoBehaviour
             }
             else
             {
-
-                other.gameObject.GetComponent<EnemyController>().TakeDamage(20);
+                getShoot = Instantiate(getShootVFX, transform.position, Quaternion.identity);
+                Destroy(getShoot,2f);
+                other.gameObject.GetComponent<EnemyController>().TakeDamage(bulletPower);
                 Destroy(this.gameObject);
 
             }

@@ -6,7 +6,7 @@ public class EnemyMaker : MonoBehaviour
 {
     public GameObject enermyPrefab;
     public float curTime;
-    public float coolTime = 0.5f;
+    public float coolTime = 1f;
     public int enemyCnt = 0;
     public int enemyMaxCnt = 10;
     public bool isRunning = false;
